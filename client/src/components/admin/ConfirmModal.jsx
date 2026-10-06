@@ -1,0 +1,8 @@
+import {useEffect,useRef} from 'react'
+import {motion,AnimatePresence} from 'framer-motion'
+import {X} from 'lucide-react'
+export default function ConfirmModal({open,title='Confirm',message,confirmLabel='Confirm',cancelLabel='Cancel',danger=false,onConfirm,onCancel}){
+  const ref=useRef(null)
+  useEffect(()=>{if(!open)return;ref.current?.focus();const k=e=>{if(e.key==='Escape')onCancel?.()};window.addEventListener('keydown',k);return()=>window.removeEventListener('keydown',k)},[open,onCancel])
+  return <AnimatePresence>{open&&(<div className="fixed inset-0 z-[80] flex items-center justify-center p-4" role="dialog" aria-modal="true"><motion.div className="absolute inset-0 bg-forest-deep/50" initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} onClick={onCancel}/><motion.div className="relative w-full max-w-md rounded-2xl bg-cream-soft p-6 shadow-xl border border-forest/10" initial={{opacity:0,scale:0.95}} animate={{opacity:1,scale:1}} exit={{opacity:0,scale:0.95}}><button type="button" onClick={onCancel} className="absolute right-4 top-4 rounded-lg p-1 text-forest/50 hover:bg-forest/5" aria-label="Close"><X size={18}/></button><h2 className="font-display text-xl text-forest-deep pr-8">{title}</h2>{message&&<p className="mt-2 text-sm text-forest/70">{message}</p>}<div className="mt-6 flex justify-end gap-3"><button type="button" onClick={onCancel} className="rounded-xl border border-forest/15 px-4 py-2 text-sm font-medium text-forest hover:bg-forest/5">{cancelLabel}</button><button ref={ref} type="button" onClick={onConfirm} className={`rounded-xl px-4 py-2 text-sm font-medium text-cream ${danger?'bg-red-700 hover:bg-red-800':'bg-forest hover:bg-forest-light'}`}>{confirmLabel}</button></div></motion.div></div>)}</AnimatePresence>
+}

@@ -1,0 +1,31 @@
+/* =========================================================
+   MarketLink Global Loader
+   ========================================================= */
+
+.marketlink-loader-grain {
+  opacity: 0.16;
+
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(35, 70, 51, 0.12) 0 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(128, 106, 80, 0.08) 0 1px,
+      transparent 1px
+    );
+
+  background-size:
+    24px 24px,
+    31px 31px;
+
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marketlink-loader-grain {
+    opacity: 0.08;
+  }
+}

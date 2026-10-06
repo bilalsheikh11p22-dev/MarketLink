@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Market photo coming soon">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9efe1"/><stop offset="1" stop-color="#d4dfc6"/></linearGradient></defs>
+  <rect width="400" height="300" fill="url(#g)"/>
+  <g fill="none" stroke="#3f5f45" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" opacity=".55" transform="translate(200 140)"><path d="M-56 -4h112l-12-36h-88z"/><path d="M-48-4v50h96v-50"/><path d="M-12 46v-26h24v26"/></g>
+  <text x="200" y="250" text-anchor="middle" font-family="Georgia,serif" font-size="16" fill="#3f5f45" opacity=".6">Market photo coming soon</text>
+</svg>

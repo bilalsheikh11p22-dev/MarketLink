@@ -1,0 +1,14 @@
+{
+  "name": "MarketLink",
+  "short_name": "MarketLink",
+  "description": "Order fresh produce from local farmers and pick it up at your local market.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f6f1e6",
+  "theme_color": "#1f3d2b",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

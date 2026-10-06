@@ -1,0 +1,34 @@
+# dependencies
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# environment files
+.env
+.env.*
+!.env.example
+
+# build
+dist/
+client/dist/
+server/dist/
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Vercel
+.vercel/
+
+# local uploads
+server/uploads/
