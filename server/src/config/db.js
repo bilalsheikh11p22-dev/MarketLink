@@ -8,7 +8,7 @@ export async function connectDB(uri) {
   if (!cache.promise) {
     mongoose.set('strictQuery', true)
     cache.promise = mongoose
-      .connect(uri, { serverSelectionTimeoutMS: 10000, bufferCommands: false })
+      .connect(uri, { serverSelectionTimeoutMS: 10000 })
       .then(() => console.log(`MongoDB connected: ${mongoose.connection.name}`))
       .catch((err) => { cache.promise = null; throw err })
   }
