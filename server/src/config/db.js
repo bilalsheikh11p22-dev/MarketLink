@@ -1,9 +1,17 @@
-  import mongoose from 'mongoose'
+import mongoose from 'mongoose'
 
-  export async function connectDB(uri) {
-    if (!uri) throw new Error('MONGO_URI is not defined')
+const cache = globalThis.__mongoCache || (globalThis.__mongoCache = { promise: null })
+
+export async function connectDB(uri) {
+  if (!uri) throw new Error('MONGO_URI is not defined')
+  if (mongoose.connection.readyState === 1) return
+  if (!cache.promise) {
     mongoose.set('strictQuery', true)
-    await mongoose.connect(uri, { serverSelectionTimeoutMS: 10000 })
-    console.log(`MongoDB connected: ${mongoose.connection.name}`) // host omitted from logs on purpose
+    cache.promise = mongoose
+      .connect(uri, { serverSelectionTimeoutMS: 10000, bufferCommands: false })
+      .then(() => console.log(`MongoDB connected: ${mongoose.connection.name}`))
+      .catch((err) => { cache.promise = null; throw err })
   }
-  export default connectDB
+  await cache.promise
+}
+export default connectDB
